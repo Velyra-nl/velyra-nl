@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Velyra | Bedankt</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: 'Georgia', serif;
+      color: #f4f4f4;
+      background: black;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0, 0, 0, 0.8);
+    }
+    video.background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+    .content {
+      text-align: center;
+      max-width: 600px;
+      padding: 2rem;
+      background: rgba(0, 0, 0, 0.6);
+      border-radius: 12px;
+    }
+    .logo {
+      max-width: 220px;
+      margin-bottom: 1.5rem;
+    }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+  <video autoplay muted loop playsinline class="background">
+    <source src="Velyra_Background.mp4" type="video/mp4">
+  </video>
+  <div class="content">
+    <img src="velyra_logo.png" alt="Velyra logo" class="logo">
+    <h1>Bedankt voor jullie vertrouwen</h1>
+    <p>Jullie ritueel is in gang gezet. Achter de schermen bereiden wij een nacht voor die tast, prikkelt en onthult. Een nacht waarin niets toeval is.<br><br>
+    Houd je inbox in de gaten. De eerste aanraking komt binnenkort...</p>
+  </div>
+</body>
+</html>
