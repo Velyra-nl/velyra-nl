@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Velyra | Onboarding</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: 'Georgia', serif;
+      color: #f4f4f4;
+      overflow: hidden;
+    }
+    .background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      object-fit: cover;
+    }
+    .content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 2rem;
+      background: rgba(0, 0, 0, 0.6);
+    }
+    img.logo {
+      max-width: 250px;
+      margin-bottom: 2rem;
+    }
+    form {
+      background: rgba(255, 255, 255, 0.03);
+      padding: 2rem;
+      border-radius: 12px;
+      max-width: 600px;
+      width: 100%;
+      box-shadow: 0 0 30px rgba(255, 255, 255, 0.05);
+    }
+    .step {
+      display: none;
+      flex-direction: column;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+    .step.active {
+      display: flex;
+      opacity: 1;
+    }
+    label {
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+    }
+    input, textarea, button, select {
+      width: 100%;
+      padding: 0.8rem;
+      margin-bottom: 1.5rem;
+      border: none;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      font-size: 1rem;
+    }
+    .checkbox-group {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    button {
+      background: #814d3c;
+      color: #fff;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    button:hover {
+      background: #a2624c;
+    }
+  </style>
+</head>
+<body>
+  <video autoplay muted loop playsinline class="background">
+    <source src="Velyra_Background.mp4" type="video/mp4">
+  </video>
+  <div class="content">
+    <img src="velyra_logo.png" alt="Velyra logo" class="logo">
+    <form id="velyraForm" action="https://formspree.io/f/xrbkzjnl" method="POST">
+      <div class="step active">
+        <label for="gids">Wie is de Gids?</label>
+        <input type="text" id="gids" name="gids" required>
+        <button type="button" onclick="nextStep()">Volgende</button>
+      </div>
+      <div class="step">
+        <label for="ontdekker">Wie is de Ontdekker?</label>
+        <input type="text" id="ontdekker" name="ontdekker" required>
+        <button type="button" onclick="nextStep()">Volgende</button>
+      </div>
+      <div class="step">
+        <label for="email_gids">E-mailadres van de Gids</label>
+        <input type="email" id="email_gids" name="email_gids" required>
+        <button type="button" onclick="nextStep()">Volgende</button>
+      </div>
+      <div class="step">
+        <label for="email_ontdekker">E-mailadres van de Ontdekker</label>
+        <input type="email" id="email_ontdekker" name="email_ontdekker" required>
+        <button type="button" onclick="nextStep()">Volgende</button>
+      </div>
+      <div class="step">
+        <label for="locatie">Waar speelt jullie nacht zich af?</label>
+        <textarea id="locatie" name="locatie" required></textarea>
+        <button type="button" onclick="nextStep()">Volgende</button>
+      </div>
+      <div class="step">
+        <label for="datum">En wanneer?</label>
+        <input type="date" id="datum" name="datum" required>
+        <button type="button" onclick="nextStep()">Volgende</button>
+      </div>
+      <div class="step">
+        <label>Zijn er persoonlijke elementen die we subtiel mogen verweven?</label>
+        <textarea name="persoonlijke_elementen" placeholder="Vertel ons..."></textarea>
+        <button type="button" onclick="nextStep()">Volgende</button>
+      </div>
+      <div class="step">
+        <label for="adres_box">Waar mogen we de geheime Box naartoe sturen?</label>
+        <textarea id="adres_box" name="adres_box" required></textarea>
+        <button type="button" onclick="nextStep()">Volgende</button>
+      </div>
+      <div class="step">
+        <label for="adres_ontdekker">Wat is het adres van de Ontdekker?</label>
+        <textarea id="adres_ontdekker" name="adres_ontdekker" required></textarea>
+        <button type="submit">Verstuur</button>
+      </div>
+    </form>
+  </div>
+  <script>
+    const steps = document.querySelectorAll('.step');
+    let currentStep = 0;
+
+    function nextStep() {
+      if (steps[currentStep]) {
+        steps[currentStep].classList.remove('active');
+      }
+      currentStep++;
+      if (steps[currentStep]) {
+        steps[currentStep].classList.add('active');
+      }
+    }
+  </script>
+</body>
+</html>
